@@ -18,11 +18,9 @@ const notifications = {};
 notifications.sendTwilioSms = (phone, msg, callback) => {
     console.log(twilio);
     // input validation
-    const userPhone =
-        typeof phone === 'string' && phone.trim().length === 11 ? phone.trim() : false;
+    const userPhone =        typeof phone === 'string' && phone.trim().length === 11 ? phone.trim() : false;
 
-    const userMsg =
-        typeof msg === 'string' && msg.trim().length > 0 && msg.trim().length <= 1600
+    const userMsg =        typeof msg === 'string' && msg.trim().length > 0 && msg.trim().length <= 1600
             ? msg.trim()
             : false;
 
@@ -40,7 +38,7 @@ notifications.sendTwilioSms = (phone, msg, callback) => {
         // configure the request details
         const requestDetails = {
             hostname: 'api.twilio.com',
-            method: 'POST',
+            method: 'GET',
             path: `/2010-04-01/Accounts/${twilio.accountSid}/Messages.json`,
             auth: `${twilio.accountSid}:${twilio.authToken}`,
             headers: {
@@ -53,9 +51,9 @@ notifications.sendTwilioSms = (phone, msg, callback) => {
             // get the status of the sent request
             const status = res.statusCode;
 
-            console.log(requestDetails);
+            // console.log(requestDetails);
 
-            console.log(status);
+            // console.log(status);
             // callback successfully if the request went through
             if (status === 200 || status === 201) {
                 callback(false);
