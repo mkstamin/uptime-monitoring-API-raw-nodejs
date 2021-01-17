@@ -84,7 +84,7 @@ handler._check.post = (requestPropeties, callback) => {
                                         ? userObject.checks
                                         : [];
 
-                                if (userChecks < maxChecks) {
+                                if (userChecks.length < maxChecks) {
                                     const checkId = createRandomString(20);
                                     const checkObject = {
                                         id: checkId,

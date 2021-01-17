@@ -53,7 +53,6 @@ notifications.sendTwilioSms = (phone, msg, callback) => {
             // get the status of the sent request
             const status = res.statusCode;
 
-            console.log(status);
             // callback successfully if the request went through
             if (status === 200 || status === 201) {
                 callback(false);
